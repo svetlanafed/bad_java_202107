@@ -1,6 +1,6 @@
 package com.bad_java.homework.hyperskill.EncoderDecoder;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
@@ -10,16 +10,14 @@ public class Main {
     }
 
     private static char getRandomChar() {
-        Random random = new Random();
         final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0123456789";
-        return alphabet.charAt(random.nextInt(alphabet.length()));
+        return alphabet.charAt(ThreadLocalRandom.current().nextInt(alphabet.length()));
     }
 
     private static String replaceChar(Terminal terminal) {
         char[] inputArray = terminal.readLine().toCharArray();
-        Random random = new Random();
         for (int i = 0; i < inputArray.length; i += 3) {
-            int index = random.nextInt(3) + i; //индекс от i до i + 3
+            int index = ThreadLocalRandom.current().nextInt(i, i + 3);
             char replacement;
             if (inputArray.length - i > 2) {
                 do {
