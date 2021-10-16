@@ -16,8 +16,24 @@ public class Message {
         }
         return sb.toString();
     }
-    String correctErrors(String messageWithErrors){
-        //дописать
-        return null;
+
+    String correctErrors(String messageWithErrors) {
+        StringBuilder correctLine = new StringBuilder();
+        char[] wrongMessage = messageWithErrors.toCharArray();
+        for (int i = 0; i < wrongMessage.length; i += 3) {
+            if (wrongMessage.length - i > 2) {
+                if (wrongMessage[i] == wrongMessage[i + 1] || wrongMessage[i] == wrongMessage[i
+                    + 2]) {
+                    correctLine.append(wrongMessage[i]);
+                } else if (wrongMessage[i + 1] == wrongMessage[i + 2]) {
+                    correctLine.append(wrongMessage[i + 1]);
+                }
+            } else {
+                for (int j = i; j < wrongMessage.length; j++) {
+                    correctLine.append(wrongMessage[j]);
+                }
+            }
+        }
+        return correctLine.toString();
     }
 }

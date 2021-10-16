@@ -4,8 +4,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ErrorsEmulator {
 
-    String replaceChar(Message message) {
-        char[] inputArray = message.getMessage().toCharArray();
+    String replaceChar(String message) {
+        char[] inputArray = message.toCharArray();
         for (int i = 0; i < inputArray.length; i += 3) {
             int index = ThreadLocalRandom.current().nextInt(i, i + 3);
             char replacement;

@@ -6,9 +6,11 @@ public class Main {
         Terminal terminal = new Terminal(System.in, System.out);
         ErrorsEmulator emulator = new ErrorsEmulator();
         Message message = new Message(terminal.readLine());
-        terminal.println(message);
-        terminal.println(message.repeatEveryLetterThreeTimes());
-        String messageWithErrors = emulator.replaceChar(message);
+
+        terminal.println(message.getMessage());
+        String tripledMessage = message.repeatEveryLetterThreeTimes();
+        terminal.println(tripledMessage);
+        String messageWithErrors = emulator.replaceChar(tripledMessage);
         terminal.println(messageWithErrors);
         terminal.println(message.correctErrors(messageWithErrors));
     }
